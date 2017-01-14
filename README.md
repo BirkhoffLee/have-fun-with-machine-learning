@@ -89,8 +89,7 @@ training and validating your network a lot easier.  We’ll be using
 Caffe can be a bit of work to get installed.  There are [installation instructions](http://caffe.berkeleyvision.org/installation.html)
 for various platforms, including some prebuilt Docker or AWS configurations.
 
-**NOTE:** when making my walkthrough, I used the following non-released version of Caffe from their Github repo:
-https://github.com/BVLC/caffe/commit/5a201dd960840c319cefd9fa9e2a40d2c76ddd73
+**NOTE:** when making my walkthrough, I used the non-released version [5a201d](https://github.com/BVLC/caffe/tree/5a201dd960840c319cefd9fa9e2a40d2c76ddd73) of [Caffe](https://github.com/BVLC/caffe) from their Github repo
 
 On a Mac it can be frustrating to get working, with version issues halting
 your progress at various steps in the build.  It took me a couple of days
@@ -172,8 +171,8 @@ an expert on everything you can do with DIGITS.  There's also a public [DIGITS U
 There are various ways to install and run DIGITS, from Docker to pre-baked packages
 on Linux, or you can build it from source. I’m on a Mac, so I built it from source.
 
-**NOTE:** In my walkthrough I've used the following non-released version of DIGITS
-from their Github repo: https://github.com/NVIDIA/DIGITS/commit/81be5131821ade454eb47352477015d7c09753d9
+**NOTE:** In my walkthrough I've used the non-released version [81be51](https://github.com/NVIDIA/DIGITS/commit/81be5131821ade454eb47352477015d7c09753d9) of [DIGITS](https://github.com/NVIDIA/DIGITS)
+from their Github repo
 
 Because it’s just a bunch of Python scripts, it was fairly painless to get working.
 The one thing you need to do is tell DIGITS where your `CAFFE_ROOT` is by setting
@@ -188,7 +187,7 @@ NOTE: on Mac I had issues with the server scripts assuming my Python binary was
 called `python2`, where I only have `python2.7`.  You can symlink it in `/usr/bin`
 or modify the DIGITS startup script(s) to use the proper binary on your system.
 
-Once the server is started, you can do everything else via your web browser at http://localhost:5000, which is what I'll do below.
+Once the server is started, you can do everything else via your web browser at [localhost:5000](http://localhost:5000), which is what I'll do below.
 
 ##Training a Neural Network
 
@@ -375,16 +374,16 @@ In our first attempt, we used AlexNet’s architecture, but started with random
 weights in the network’s layers.  What we’d like to do is download and use a
 version of AlexNet that has already been trained on a massive dataset.
 
-Thankfully we can do exactly this.  A snapshot of AlexNet is available for download: https://github.com/BVLC/caffe/tree/master/models/bvlc_alexnet.
+Thankfully we can do exactly this.  A snapshot of AlexNet is available for download: [bvlc_alexnet](https://github.com/BVLC/caffe/tree/master/models/bvlc_alexnet).
 We need the binary `.caffemodel` file, which is what contains the trained weights, and it’s
-available for download at http://dl.caffe.berkeleyvision.org/bvlc_alexnet.caffemodel.
+available for download at [here](http://dl.caffe.berkeleyvision.org/bvlc_alexnet.caffemodel).
 
 While you’re downloading pretrained models, let’s get one more at the same time.
 In 2014, Google won the same ImageNet competition with [GoogLeNet](https://research.google.com/pubs/pub43022.html) (codenamed Inception):
 a 22-layer neural network. A snapshot of GoogLeNet is available for download
-as well, see https://github.com/BVLC/caffe/tree/master/models/bvlc_googlenet.
+as well, see [GoogLeNet](https://github.com/BVLC/caffe/tree/master/models/bvlc_googlenet).
 Again, we’ll need the `.caffemodel` file with all the pretrained weights,
-which is available for download at http://dl.caffe.berkeleyvision.org/bvlc_googlenet.caffemodel. 
+which is available for download at [here](http://dl.caffe.berkeleyvision.org/bvlc_googlenet.caffemodel). 
 
 With these `.caffemodel` files in hand, we can upload them into DIGITs.  Go to
 the **Pretrained Models** tab in DIGITs home page and choose **Upload Pretrained Model**:
@@ -396,8 +395,8 @@ For both of these pretrained models, we can use the defaults DIGITs provides
 `Weights (**.caffemodel)` and `Model Definition (original.prototxt)`.
 Click each of those buttons to select a file.
 
-For the model definitions we can use https://github.com/BVLC/caffe/blob/master/models/bvlc_googlenet/train_val.prototxt
-for GoogLeNet and https://github.com/BVLC/caffe/blob/master/models/bvlc_alexnet/train_val.prototxt
+For the model definitions we can use [this](https://github.com/BVLC/caffe/blob/master/models/bvlc_googlenet/train_val.prototxt)
+for GoogLeNet and [this](https://github.com/BVLC/caffe/blob/master/models/bvlc_alexnet/train_val.prototxt)
 for AlexNet.  We aren’t going to use the classification labels of these networks,
 so we’ll skip adding a `labels.txt` file:
  
@@ -408,7 +407,7 @@ Repeat this process for both AlexNet and GoogLeNet, as we’ll use them both in 
 > Q: "Are there other networks that would be good as a basis for fine tuning?"
 
 The [Caffe Model Zoo](http://caffe.berkeleyvision.org/model_zoo.html) has quite a few other
-pretrained networks that could be used, see https://github.com/BVLC/caffe/wiki/Model-Zoo.
+pretrained networks that could be used, see [its wiki](https://github.com/BVLC/caffe/wiki/Model-Zoo).
 
 ####Fine Tuning AlexNet for Dolphins and Seahorses
 
